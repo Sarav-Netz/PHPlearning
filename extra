@@ -1,0 +1,165 @@
+    // $server="localhost";
+    // $username="root";
+    // $password="root";
+    // $db="singhdb";
+
+    // $con=mysqli_connect($server,$username,$password,$db);
+    // if(!$con){
+    //     die("connection is failed due to".mysqli_connect_error());
+    // }
+
+    // $username = $_POST[userName];
+    // $userEmail = $_POST[userEmail];
+    // $phone = $_POST[phone];
+    // $gender = $_POST[gender];
+    // // $sql = "INSERT INTO `singhdb`.`userinfo` (`userName`, `userEmail`, `phone`, `gender`) VALUES ( '$username', '$userEmail', '$phone', '$gender')";
+    // $myfile = 'data.txt';
+    // $username = $_POST["userName"];
+    // $userEmail = $_POST["userEmail"];
+    // $phone = $_POST["phone"];
+    // $gender = $_POST["gender"];
+    // $dataArray = array("$username","$userEmail","$phone","$gender");
+    // echo "you entered ".$username."</br>".$userEmail."</br>".$phone."</br>".$gender;
+
+    // $myfile = 'data.xls';
+    // // $myfile = "data1.txt";
+    // $handle = fopen($myfile, 'a') or die('Cannot open file: '.$myfile); 
+    
+    // // $handle = fopen($myfile, 'r')
+    // // echo fread($myfile, 12);
+    
+    
+    // fwrite($handle, "username:".$username);
+    // fwrite($handle, "useEmail:".$userEmail);
+    // fwrite($handle, "Contactt".$phone);
+    // fwrite($handle, "gender:".$gender);
+    
+
+    // fclose($handle);
+
+
+<?php
+
+?>
+
+
+
+Singh,jeet,ss@ss,6666,male
+Saravjeet,Singh,ss@ss,666999,male
+Davinder,Dhiman,dh@dh,7655,Male
+"Gurjeet ",Singh,gg@ss,989788,Male
+"Gurjeet ",Singh,gg@ss,989788,Male
+manjeet,Kaur,mm@mm,7773,Female
+
+
+
+
+"user Id",firstName,lastName,email,phone,gender
+1,Sarav,Singh,ss@mm,786,Male
+2,"gurleen ",Kaur,KK@gg,8776,Female
+2,Davinder,Dhiman,dd@dd,8766655,male
+1,mony,Kaur,mm@kk,8888,Female
+1,Bruce,Wayne,bb@ww,7654,Male
+1,Bruce,Wayne,bb@ww,7654,Male
+7,Bruce,Wayne,bb@ww,7654,Male
+8,Bruce,Wayne,bb@ww,7654,Male
+
+
+
+
+"User Id","First Name","Last Name",Email,Phone,Gender
+1001,saravjeet,singh,ss@ss,8765,Male
+1002,Harjeet,Singh,hh@ss,5567,Male
+1003,vikas,vikas,vv@vv,3535,Male
+
+
+
+
+
+
+
+trial2.php:- was just trying
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>php trials</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        form {
+            text-align: center;
+            background-color: gray;
+            color: white;
+            margin: auto;
+            max-width: 70%;
+            
+        }
+
+        input {
+            width: 60%;
+            margin-top: 2%;
+            padding: 1%;
+            border-radius: 23px;
+            text-align: center;
+        }
+
+        button {
+            width: 10%;
+            margin-top: 2%;
+            background-color: black;
+            padding: 1%;
+            border-radius: 23px;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+
+        }
+    </style>
+</head>
+<body>
+    <?php
+        // if (isset($_POST['searchUser'])) {
+        //     $Email = $_POST['searchingEmail'];
+        //     echo "<p>YOU'R AT THE RIGHT PLACE</p>";
+        // }
+        $Email = $_POST['searchingEmail'];
+        // echo "$Email";
+        // echo "YOU'R AT THE RIGHT PLACE";
+        $myfile = "data.csv";
+        $handle = fopen($myfile,'r+') or die("Your file"."$myfile"."is't accessible");
+        while (!feof($handle)) {
+            $row = fgetcsv($handle);
+            foreach ((array)$row as $key => $value) {
+                // echo "$value";
+                if ($value===$Email) {
+                    // echo "$row[$key]";
+                    // echo "UserId:$row["userId"]</br>,
+                    // userName: $row["firstName"]." "."$row[lastName]"</br>,
+                    // userEmail: $row["email"]</br>,
+                    // user Contact:$row["phone"]</br>,
+                    // gender : $row["gender"]
+                    // ";
+                    foreach((array)$row as  $value1){
+                        echo "$value1";
+                    }
+
+                }
+                // else {
+                //     echo "these are just the abstuctions";
+                // }
+            }
+        } 
+    ?>
+    <form action="" method="POST">
+        <input type="text" name="searchingEmail" id="searchingEmail" placeholder="Enter Email to find the detail of the User">
+        <button name="searchUser"  style="background-color:pink;width:20%">Search User</button>
+    </form>
+</body>
+</html>
