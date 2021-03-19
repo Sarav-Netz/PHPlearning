@@ -26,11 +26,19 @@
         if ($linecount = count(file("$myfile")) == 0) {
             $userId= getUserId()+1;
             fputcsv($handle,array('User Id',"First Name","Last Name","Email","Phone","Gender"));
-            $content = array($userId,"$firstName","$lastName","$email","$phone","$gender");
+            $content = array('userId'=>$userId,"firstName"=>"$firstName","lastName"=>"$lastName","email"=>"$email","phone"=>"$phone","gender"=>"$gender");
             fputcsv($handle,$content);
             echo "<p>Data Saved Successfully</p>";
             fclose($handle);
         }
+        // if(count($rows=file($myfile))){
+        //     fputcsv($handle,)
+        // }
+        // $userId = getUserId();    
+        // $content = array("userId"=>$userId,"firstName"=>"$firstName",'lastName'=>"$lastName","email"=>"$email","phone"=>"$phone","gender"=>"$gender");
+        // fputcsv($handle,$content);
+        // echo "<p>Data Saved Successfully</p>";
+        // fclose($handle);
         else{
             $userId = getUserId();
             // $content = "firstName,lastName,email,phone,gender";
@@ -127,53 +135,43 @@
     elseif (isset($_POST['deleteUser'])) {//not working properly
            $userId = $_POST['deleteId'];
            $myfile = "data.csv";
-           $handle1 = fopen($myfile,'r') or die("Your file"."$myfile"."is't accessible");
-           $handle2 = fopen($myfile,'w') or die("Your file"."$myfile"."is't accessible");
-           while (!feof($handle1)) {
-                $row = fgetcsv($handle1);
-                if(in_array($userId,(array)$row)===FALSE){
-                    fputcsv($handle1,(array)$row);
-                }
-                else {
-                    continue;
-                }
-            }    
-            // while (!feof($handle1) ) {
-            //     $row = fgetcsv($handle1);
-            //     echo var_dump($row);
-            //     echo $row[0];    
-                // if ($userId != $row[0]) {
-                //     fputcsv($handle1, (array)$row);
-                // }
-            // }    
-            //    echo "count($handle)"; // not working
-            //    foreach ((array)$row as $value) {
-                    //    echo "$value";
-                    // if(in_array($userId,(array)$row)===FALSE){
-                        // fputcsv($handle,(array)$row);
-                        // echo "i'm Here!"; 
-                        // unset($row["$key"]);
-                        // echo "data deleted successfully.";
-                        // ftruncate($row,count((array)$row));
-                        // $data = implode((array)$row);
-                        // file_put_contents($myfile,$data);
-                    // }
-            //    }
-            //    echo "data deleted successfully.";
-            // echo "data deleted successfully.";
-            // fclose($handle1);
-            // fclose($handle2);
+           $wholeData = array();
+           $handle = fopen($myfile,'r+') or die("Your file"."$myfile"."is't accessible");
+           while(!feof($handle)){
+               $row = fgetcsv($handle);
+               $row = implode(",",(array)$row);
+               if(in_array($userId,(array)$row)===FALSE){
+                //    fputcsv($handle,(array)$row).PHP_EOL;
+                
+                array_push($wholeData,$row);
+               }
+           }
+        //    var_dump($wholeData);
+        //    echo implode(" ",$wholeData);
+        
+        ftruncate($handle,0);
+        rewind($handle);
+           foreach ($wholeData as $value) {
+            //    echo implode(" ", (array)$value)."</br>";
+            if(strpos($value,$userId)===FALSE){
+                // echo "$value"."</br>"; 
+                $value = explode(",",$value);
+                fputcsv($handle,$value);
+            }
+           }
+        echo "Data Deleted Successfully";
+        fclose($handle);
     }
     elseif (isset($_POST['updateUser'])) {
         // echo "i'm running";
-        $myfile = 'data.csv';
-        $handle = fopen($myfile,'w+') or die("Your file is not accessible");
-
-
-
-
-
-        fclose($handle);
+        // $myfile = 'data.csv';
+        // $handle = fopen($myfile,'w+') or die("Your file is not accessible");
+        // fclose($handle);
+        // $userId = $_POST['updationId'];
+        // session_start();
+        // $_SESSION['updationId'] = $userId;
+        $header = 'http://localhost/TrialPhp/index.html';
+        header("Location: $header");
     }
            
 ?>

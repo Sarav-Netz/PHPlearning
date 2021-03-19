@@ -163,3 +163,47 @@ trial2.php:- was just trying
     </form>
 </body>
 </html>
+
+
+
+
+elseif (isset($_POST['deleteUser'])) {//not working properly
+           $userId = $_POST['deleteId'];
+           $myfile = "data.csv";
+           $wholeData = array();
+           $handle1 = fopen($myfile,'r+') or die("Your file"."$myfile"."is't accessible");1
+        //    $handle2 = fopen($myfile,'w') or die("Your file"."$myfile"."is't accessible");
+           while (!feof($handle1)) {
+                $row = fgetcsv($handle1);
+                if(!in_array($userId,(array)$row)){
+                    array_push($row);
+                }
+            }
+            fclose($handle1);    
+            fclose($handle2);
+            // while (!feof($handle1) ) {
+            //     $row = fgetcsv($handle1);
+            //     echo var_dump($row);
+            //     echo $row[0];    
+                // if ($userId != $row[0]) {
+                //     fputcsv($handle1, (array)$row);
+                // }
+            // }    
+            //    echo "count($handle)"; // not working
+            //    foreach ((array)$row as $value) {
+                    //    echo "$value";
+                    // if(in_array($userId,(array)$row)===FALSE){
+                        // fputcsv($handle,(array)$row);
+                        // echo "i'm Here!"; 
+                        // unset($row["$key"]);
+                        // echo "data deleted successfully.";
+                        // ftruncate($row,count((array)$row));
+                        // $data = implode((array)$row);
+                        // file_put_contents($myfile,$data);
+                    // }
+            //    }
+            //    echo "data deleted successfully.";
+            // echo "data deleted successfully.";
+            // fclose($handle1);
+            // fclose($handle2);
+    }
