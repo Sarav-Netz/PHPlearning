@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User info Trial</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        form{
+            text-align: center;
+            background-color: gray;
+            color: white;
+            margin: auto;
+            max-width: 70%;
+        }
+        input{
+            width: 60%;
+            margin-top: 2%;
+            padding: 1%;
+            border-radius: 23px;
+            text-align: center;
+        }
+        button{
+            width: 10%;
+            margin-top: 2%;
+            background-color: black;
+            padding: 1%;
+            border-radius: 23px;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+
+        }
+       
+    </style>
+</head>
+<body>
+    <form action="index1.php" method="POST" autocomplete="off">
+        <input type="text" name="firstName" id="firstName" placeholder="enter your First name">
+        <input type="text" name="lastName" id="lastName" placeholder="enter your last name">
+        <input type="email" name="email" id="email" placeholder="enter your email">
+        <input type="phone" name="phone" id="phone" placeholder="Enter your contact number">
+        <input type="text" name="gender" id="gender" placeholder="Enter Your Gender"><br/>
+        <button name="addUser">Submit</button>
+        <button name="showUsers" style="background-color:green;width:20%">View Users</button></br></br>
+        <h3 >Enter User Id to get the user information.</h3>
+        <!-- <input type="email" name="searchingId" id="searchingEmail" placeholder="Enter Email to find the detail of the User" > -->
+        <input type="text" name="searchingId" id="searchingId" placeholder="Enter User Id to find the detail of the User">
+        <button name="searchUser"  style="background-color:pink;width:20%">Search User</button>
+        <br/></br>
+        <h3 >Enter User Id to delete the user information.</h3>
+        <input type="text" name="deleteId" id="deleteId" placeholder="Enter User Id to delete the detail of the User">
+        <button name="deleteUser"  style="background-color:pink;width:20%">Delete User</button>
+        </br></br>
+        <button name="updateUser" style="background-color:zeal;width:50%" >Click To Update the User</button>
+
+    </form>
+    
+    
+</body>
+</html>
