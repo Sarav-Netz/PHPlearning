@@ -207,11 +207,3 @@ elseif (isset($_POST['deleteUser'])) {//not working properly
             // fclose($handle1);
             // fclose($handle2);
     }
-    
-    
-    
-    
-    
-    cheat code fot the SQL
-    
-    https://programmingwithmosh.com/wp-content/uploads/2019/03/SQL-Cheat-Sheet.pdf

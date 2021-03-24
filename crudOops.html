@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CRUD Using OOPs.</title>
+    <style>
+        form {
+            background-color: rgb(153, 200, 238);
+            margin: 5%;
+            border-radius: 2%;
+        }
+
+        label {
+            font-size: x-large;
+
+        }
+
+        input {
+            font-size: x-large;
+            width: 50%;
+            text-align: center;
+        }
+
+        button {
+            font-size: x-large;
+            width: auto;
+            color: brown;
+            border-radius: 5%;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="crudOops.php" method="POST" autocomplete="off">
+        <div style="margin-left:30%;">
+            <label>Name</label></br>
+            <input type="text" name="userName" id="userName" placeholder="Enter Your Name"></br>
+            <label>Age</label></br>
+            <input type="text" name="age" id="age" placeholder="enter Your age"></br>
+            <label>Email</label></br>
+            <input type="text" name="email" id="email" placeholder="enter Your email"></br>
+            <label>Contact Number</label></br>
+            <input type="text" name="contactNumber" id="contactNumber" placeholder="enter Your contact number"></br>
+            <label>Gneder</label></br>
+            <input type="text" name="gender" id="gender" placeholder="enter Your gender"></br></br>
+            <button name="submitInfo">Submit Info</button>
+        </div>
+    </form>
+</body>
+
+</html>
